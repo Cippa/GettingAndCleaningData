@@ -136,7 +136,7 @@ rm(activityLabels)
 
 ##########Prepare tidy dataset##################################################
 tidyDataSet <- wholeDataset %>%
-        select(-activity) %>%
+        select(subject, activityDescription, contains("mean"), contains ("std")) %>%
         group_by(activityDescription, subject) %>%
         summarise_all(mean)
 
